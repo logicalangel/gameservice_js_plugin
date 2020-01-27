@@ -1,0 +1,12 @@
+{
+  "name": "gamesservice-sdk",
+  "version": "1.0.0",
+  "description": "GamesService SDK",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Amir Rastegar (FiroozehCorp LTD)",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.1"
+  }
+}
