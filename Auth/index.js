@@ -1,7 +1,7 @@
 const axios = require("axios");
 const urls = require('./urls');
 const Consts = require("../Utils/Consts");
-const Command = require("../Command");
+// const Command = require("../Command");
 
 module.exports = {
     Initializer: (GameID, Secret) => {
@@ -63,7 +63,7 @@ module.exports = {
             if (start_r.data.status) {
                 Consts.gameToken = start_r.data.token;
                 Consts.gameID = start_r.data.game._id;
-                await Command.Connection.Start(Consts.gameID, Consts.userToken);
+                // await Command.Connection.Start(Consts.gameID, Consts.userToken);
             }
         } catch (e) {
             console.error("onStart: " + e);

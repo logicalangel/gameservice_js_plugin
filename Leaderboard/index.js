@@ -15,6 +15,8 @@ module.exports = {
             return leaderboard_r.data.leaderboard
         } catch (e) {
             console.error("onLeaderboardGetAll: " + e);
+            if (e.response && e.response.data)
+                return e.response.data.msg;
         }
     },
     get: async function (LeaderboardID, Limit) {
@@ -28,6 +30,8 @@ module.exports = {
             return { leaderboard: leaderboard_r.data.leaderboard, scores: leaderboard_r.data.scores };
         } catch (e) {
             console.error("onLeaderboardGet: " + e);
+            if (e.response && e.response.data)
+                return e.response.data.msg;
         }
     },
     submit: async function (LeaderboardID, Score) {
@@ -41,6 +45,8 @@ module.exports = {
             return { leaderboard: leaderboard_r.data.leaderboard.leaderboard_r, score: leaderboard_r.data.leaderboard.score, tries: leaderboard_r.data.leaderboard.tries };
         } catch (e) {
             console.error("onLeaderboardSubmit: " + e);
+            if (e.response && e.response.data)
+                return e.response.data.msg;
         }
     }
 }

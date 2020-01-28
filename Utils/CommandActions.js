@@ -68,5 +68,7 @@ module.exports = function (action) {
             return 15
         case "Error":
             return 100
+        default:
+            console.error("Wrong action");
     }
 }

@@ -1,17 +1,18 @@
 const Auth = require('./Auth');
 const Storage = require('./Storage');
-const Notificaton = require('./Notification');
+// const Notificaton = require('./Multiplayer');
 const Leaderboard = require('./Leaderboard');
 const Achievement = require('./Achievement');
 const DB = require('./DB');
-const Command = require('./Command/index');
+// const Chat = require('./Chat');
+// const Command = require('./Command/index');
 
 module.exports = {
     Auth: Auth,
     Storage: Storage,
-    Notificaton: Notificaton,
+    // Notificaton: Notificaton,
     Leaderboard: Leaderboard,
     Achievement: Achievement,
     DB: DB,
-    // Command: Command
+    // Chat:Chat
 }

@@ -15,6 +15,8 @@ module.exports = {
             return achievement_r.data.achievement;
         } catch (e) {
             console.error("onAchievementGet: " + e);
+            if (e.response && e.response.data)
+                return e.response.data.msg;
         }
     },
     unlock: async function (achievementID) {
@@ -28,6 +30,8 @@ module.exports = {
             return achievement_r.data.new;
         } catch (e) {
             console.error("onAchievementUnlock: " + e);
+            if (e.response && e.response.data)
+                return e.response.data.msg;
         }
     }
 }

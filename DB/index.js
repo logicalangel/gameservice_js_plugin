@@ -15,6 +15,8 @@ module.exports = {
             return db_r.data;
         } catch (e) {
             console.error("onGetObject: " + e);
+            if (e.response && e.response.data)
+                return e.response.data.msg;
         }
     },
     getObjects: async function (TableID, Sort, Sortby, Limit, Skip, Owner) {
@@ -28,6 +30,8 @@ module.exports = {
             return db_r.data;
         } catch (e) {
             console.error("onGetObjects: " + e);
+            if (e.response && e.response.data)
+                return e.response.data.msg;
         }
     },
     addObject: async function (TableID, Data) {
@@ -41,6 +45,8 @@ module.exports = {
             return db_r.data;
         } catch (e) {
             console.error("onAddObject: " + e);
+            if (e.response && e.response.data)
+                return e.response.data.msg;
         }
     },
     editObject: async function (TableID, ObjectID, Data) {
@@ -54,6 +60,8 @@ module.exports = {
             return db_r.data;
         } catch (e) {
             console.error("onEditObject: " + e);
+            if (e.response && e.response.data)
+                return e.response.data.msg;
         }
     },
     deleteObject: async function (TableID, ObjectID) {
@@ -67,6 +75,8 @@ module.exports = {
             return db_r.data;
         } catch (e) {
             console.error("onDeleteObject: " + e);
+            if (e.response && e.response.data)
+                return e.response.data.msg;
         }
     },
     deleteObjects: async function (TableID) {
@@ -80,6 +90,8 @@ module.exports = {
             return db_r.data;
         } catch (e) {
             console.error("onDeleteObjects: " + e);
+            if (e.response && e.response.data)
+                return e.response.data.msg;
         }
     }
 }

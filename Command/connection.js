@@ -2,15 +2,17 @@ const net = require('net');
 const Consts = require('../Utils/Consts');
 const multiplexer = require('./multiplexer');
 
+ Client = undefined;
+
 module.exports = {
-    Client: undefined,
+    getClient: () => { return global.Client },
     Start: function (GameID, Token) {
         let client = new net.Socket();
         client.connect(Consts.CommandPort, Consts.CommandEndpoint, function () {
             client.write(Buffer.from(JSON.stringify({
                 2: '{ "0": "' + GameID + '", "1": "' + Token + '" }'
             })));
-            this.Client = client;
+            global.Client = client;
         });
 
         client.on('data', function (data) {
@@ -18,10 +20,11 @@ module.exports = {
             if (JSON.parse(data.toString())["0"]) {
                 // Auth response
                 Consts.CommandToken = JSON.parse(data.toString())["0"];
+                return;
             }
             if (JSON.parse(data.toString())["1"]) {
                 // data packet
-                multiplexer(JSON.parse(data.toString()))
+                multiplexer(client, JSON.parse(data.toString()));
             }
         });
 
